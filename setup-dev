@@ -40,8 +40,30 @@ echo "# # #"
 
 # # # # # # # # # # #
 # Run bundle install
-echo "Installing Gems..."
+echo "Running bundle install"
 bundle install
+#
+# # # # # # # # # # #
+
+
+echo "# # #"
+
+
+# # # # # # # # # # #
+# Install pipenv via homebrew
+echo "Installing pipenv via homebrew"
+brew install pipenv
+#
+# # # # # # # # # # #
+
+
+echo "# # #"
+
+
+# # # # # # # # # # #
+# Run pipenv install
+echo "Running pipenv install"
+pipenv install
 #
 # # # # # # # # # # #
 
