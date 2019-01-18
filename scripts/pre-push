@@ -14,7 +14,7 @@ function commit_changes_from_hook
 {
     echo "Committing new changes..."
     git add .
-    git commit --no-verify -m "[pre-push-hook] run synx, run xUnique"
+    git commit --no-verify -m "[pre-push-hook] Run synx and xUnique"
     return $?
 }
 
