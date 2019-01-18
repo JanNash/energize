@@ -1,0 +1,67 @@
+#!/bin/bash --login
+
+
+__dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+cd "${__dir}"
+
+
+echo "# # # # #"
+
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# Use/Install ruby as specified in .ruby-version and .ruby-gemset
+rvm use "$(cat '.ruby-version')@$(cat '.ruby-gemset')" --create --install
+#
+# # # # # # # # # # # # # # # # #
+
+
+echo "# # #"
+
+
+# # # # # # # # #
+# Install bundler
+echo "Checking for bundler installation..."
+GEM_SPEC_BUNDLER_OUTPUT=$( (gem spec bundler) 2>&1 )
+GEM_NOT_FOUND=${GEM_SPEC_BUNDLER_OUTPUT::5}
+if [[ $GEM_NOT_FOUND = "ERROR" ]];
+then
+    echo "bundler is not installed."
+    echo "Installing bundler..."
+    gem install bundler
+else
+    echo "bundler is already installed."
+fi
+#
+# # # # # # # # #
+
+
+echo "# # #"
+
+
+# # # # # # # # # # #
+# Run bundle install
+echo "Installing Gems..."
+bundle install
+#
+# # # # # # # # # # #
+
+
+echo "# # #"
+
+
+# # # # # # # # # #
+# Install git hooks
+mkdir -p ".git/hooks/"
+echo "Installing pre-push hook..."
+cat <<\EOF > ".git/hooks/pre-push"
+#!/bin/bash
+
+./scripts/pre-push
+EOF
+chmod +x ".git/hooks/pre-push"
+#
+# # # # # # # # # #
+
+
+echo "Done. Have fun developing!"
+echo "# # # # #"
