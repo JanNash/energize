@@ -78,7 +78,7 @@ echo "Installing pre-push hook..."
 cat <<\EOF > ".git/hooks/pre-push"
 #!/bin/bash
 
-./scripts/pre-push
+./pre-push
 EOF
 chmod +x ".git/hooks/pre-push"
 #
