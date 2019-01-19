@@ -10,21 +10,26 @@ import os
 import logging
 
 
-
 class Template():
-    def __init__(self, xcode_version='10.1 (10B61)', platform='macOS', os_version='10.14', template_type='command line tool'):
+    def __init__(self, xcode_version, platform, os_version, template_type):
         self.xcode_version = xcode_version
         self.platform = platform
         self.os_version = os_version
         self.template_type = template_type
-        logging.debug('Created Template ')
 
     def __repr__(self):
-        return 'Template({}, {}, {}, {})'.format(self.xcode_version, self.platform, self.os_version, self.template_type)
+        return "Template('{}', '{}', '{}', '{}')".format(
+            self.xcode_version, self.platform, self.os_version, self.template_type)
 
     @property
     def path_relative_to_template_folder(self):
         return 
+
+
+AVAILABLE_TEMPLATES = [
+    Template(xcode_version='10.1 (10B61)', platform='macOS', os_version='10.14', template_type='command line tool'),
+    Template(xcode_version='10.1 (10B61)', platform='iOS', os_version='12.1', template_type='cocoa touch framework'),
+]
 
 
 def download_template(template: Template):
