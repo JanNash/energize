@@ -26,10 +26,7 @@ class Template():
         return 
 
 
-AVAILABLE_TEMPLATES = [
-    Template(xcode_version='10.1 (10B61)', platform='macOS', os_version='10.14', template_type='command line tool'),
-    Template(xcode_version='10.1 (10B61)', platform='iOS', os_version='12.1', template_type='cocoa touch framework'),
-]
+AVAILABLE_TEMPLATES = []
 
 
 def download_template(template: Template):
