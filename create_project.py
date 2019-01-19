@@ -58,11 +58,22 @@ def parse_args():
         help='Set logging level to DEBUG')
 
     parser.add_argument(
-        '-n', '--name', required=True,
+        '--available-templates',
+        action='store_true', dest='available_templates',
+        help='Prints all available templates and exits')
+
+    parser.add_argument(
+        '-n', '--name',
         action='store', dest='project_name',
         help=(
             'The name of the Xcode project that will be created. This will also be '
             'used as the name for the gemset of the development environment'))
+
+    parser.add_argument(
+        '--xcode-version',
+        action='store', dest='xcode_version',
+        help=(
+            'The version of Xcode with which the template was created'))
 
     return parser.parse_args()
 
@@ -72,6 +83,9 @@ def main(cmd_args):
         logging.basicConfig(level=logging.DEBUG)
     else:
         logging.basicConfig(level=logging.INFO)
+
+    if cmd_args.available_templates:
+        print(''.join(['{}) {}\n'.format(i, template) for i, template in enumerate(AVAILABLE_TEMPLATES, start=1)]))
 
 
 if __name__ == '__main__':
