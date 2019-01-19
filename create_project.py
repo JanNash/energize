@@ -37,12 +37,27 @@ def parse_args():
     """
     import argparse
 
-    parser = argparse.ArgumentParser(version=VERSION)
+    parser = argparse.ArgumentParser(
+        description=(
+            'xcode-project-setup - a tool to quickly setup an xcode project '
+            'together with a useful development environment'),
+        epilog='Use %(prog)s {command} -h to get help on individual commands')
+
+    parser.add_argument(
+        '-v', '--version', 
+        action='version', version='%(prog)s ' + VERSION)
 
     parser.add_argument(
         '-d', '--debug',
         action='store_true', default=False, dest='debug',
-        help='Set logging level to DEBUG. Beware, it\'s gonna be verbose :).')
+        help='Set logging level to DEBUG')
+
+    parser.add_argument(
+        '-n', '--name', required=True,
+        action='store', dest='project_name',
+        help=(
+            'The name of the Xcode project that will be created. This will also be '
+            'used as the name for the gemset of the development environment'))
 
     return parser.parse_args()
 
