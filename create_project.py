@@ -26,7 +26,9 @@ class Template():
         return 
 
 
-AVAILABLE_TEMPLATES = []
+AVAILABLE_TEMPLATES = [
+    Template('10.1 (10B61)', 'macOS', '10.14', 'command_line_tool'),
+]
 
 
 def download_template(template: Template):
