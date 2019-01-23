@@ -22,8 +22,8 @@ class Template():
             self.xcode_version, self.platform, self.os_version, self.template_type)
 
     @property
-    def path_relative_to_template_folder(self):
-        return 
+    def path_relative_to_base_url(self):
+        return os.path.join(*['templates', self.xcode_version, self.platform, self.os_version, self.template_type])
 
 
 AVAILABLE_TEMPLATES = [
