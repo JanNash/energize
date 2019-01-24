@@ -20,7 +20,7 @@ setup(
     author=metadata['author'],
     author_email=metadata['authoremail'],
     license=metadata['license'],
-    packages=[metadata['packagename']],
+    packages=setuptools.find_packages(),
     package_data={'': ['LICENSE', 'templates/**/*']},
     include_package_data=True,
     zip_safe=False,
