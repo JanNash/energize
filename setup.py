@@ -21,5 +21,8 @@ setup(
     author_email=metadata['authoremail'],
     license=metadata['license'],
     packages=[metadata['packagename']],
-    zip_safe=False
+    zip_safe=False,
+    entry_points = {
+        'console_scripts' : [ 'energize=energize:main' ],
+    },
 )
