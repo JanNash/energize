@@ -1,5 +1,5 @@
 from re import findall
-from setuptools import setup
+from setuptools import setup, find_packages
 
 
 __description__ = '''
@@ -20,12 +20,11 @@ setup(
     author=metadata['author'],
     author_email=metadata['authoremail'],
     license=metadata['license'],
-    packages=setuptools.find_packages(),
-    package_data={'': ['LICENSE', 'templates/**/*']},
+    packages=find_packages(),
     include_package_data=True,
     zip_safe=False,
     entry_points={
-        'console_scripts' : [ 'energize=energize:main' ],
+        'console_scripts' : [ 'licketysplit=licketysplit:main' ],
     },
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
