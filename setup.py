@@ -24,7 +24,14 @@ setup(
     package_data={'': ['LICENSE', 'templates/**/*']},
     include_package_data=True,
     zip_safe=False,
-    entry_points = {
+    entry_points={
         'console_scripts' : [ 'energize=energize:main' ],
     },
+    classifiers=[
+        'Development Status :: 2 - Pre-Alpha',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: BSD License',
+        'Programming Language :: Python :: 3.7',
+        'Topic :: Utilities'
+    ]
 )
