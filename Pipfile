@@ -6,7 +6,5 @@ name = "pypi"
 [requires]
 python_version = '3.7'
 
-[packages]
+[dev-packages]
 xUnique = '>=4.1.4'
-e1839a8 = {path = "."}
-licketysplit = {path = "."}
