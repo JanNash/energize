@@ -4,11 +4,11 @@ from setuptools import setup
 
 __description__ = '''
 A package to help you setting up new projects with a fitting environment.
-Just set a course, dramatically pause for a moment and 'energize' :).
+You have an idea, get coding lickety split!
 '''
 
 
-meta_file = open("energize/metadata.py").read()
+meta_file = open("licketysplit/metadata.py").read()
 metadata = dict(findall("__([a-z]+)__\s*=\s*'([^']+)'", meta_file))
 
 
@@ -21,6 +21,8 @@ setup(
     author_email=metadata['authoremail'],
     license=metadata['license'],
     packages=[metadata['packagename']],
+    package_data={'': ['LICENSE', 'templates/**/*']},
+    include_package_data=True,
     zip_safe=False,
     entry_points = {
         'console_scripts' : [ 'energize=energize:main' ],

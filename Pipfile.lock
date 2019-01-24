@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "3b627e8c8e0679be05824254d5b2fa6eca55e19ba720e8431470ed82bf418ae9"
+            "sha256": "cda96b1bdc6bce4dafeefcce45cbbe42f452a8dba5aa49a58727653aebbb9ad5"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -19,7 +19,7 @@
         "e1839a8": {
             "path": "."
         },
-        "energize": {
+        "licketysplit": {
             "path": "."
         },
         "xunique": {
