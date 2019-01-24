@@ -1,10 +1,12 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "1e971096e2527a24be57947570a8805a98df5effb17a54350039a2a92f2fe84b"
+            "sha256": "3b627e8c8e0679be05824254d5b2fa6eca55e19ba720e8431470ed82bf418ae9"
         },
         "pipfile-spec": 6,
-        "requires": {},
+        "requires": {
+            "python_version": "3.7"
+        },
         "sources": [
             {
                 "name": "pypi",
@@ -14,6 +16,12 @@
         ]
     },
     "default": {
+        "e1839a8": {
+            "path": "."
+        },
+        "energize": {
+            "path": "."
+        },
         "xunique": {
             "hashes": [
                 "sha256:69cb36b6998129343f0a851d2542c9aaa590ee253fc22b8b5ed5cd73c70ea68a"

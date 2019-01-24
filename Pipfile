@@ -3,6 +3,10 @@ url = "https://pypi.python.org/simple"
 verify_ssl = true
 name = "pypi"
 
+[requires]
+python_version = '3.7'
 
 [packages]
-xUnique = "*"
+xUnique = '>=4.1.4'
+e1839a8 = {path = "."}
+energize = {path = "."}
