@@ -63,10 +63,19 @@ mkvirtualenv licketysplit
 
 
 # # # # # # # # #
+# Install pip-tools
+echo
+echo "> Installing pip-tools"
+pip install pip-tools
+#
+# # # # # # # # #
+
+
+# # # # # # # # #
 # Install dev-requirements.txt
 echo
-echo "> Running pip install -r dev-requirements.txt"
-pip install -r dev-requirements.txt
+echo "> Running pip-sync dev-requirements.txt"
+pip-sync dev-requirements.txt
 #
 # # # # # # # # #
 
