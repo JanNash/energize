@@ -7,6 +7,11 @@ cd "${__dir}"
 
 echo "# # # # #"
 
+# // TODO: Check for rvm. Install it? No, but convince me. Or open a PR :)
+# // TODO: Check for python 3.7, preferably homebrew python. Install it?
+# // TODO: If so, check for homebrew? Install it?
+# // TODO: Check for pip. Install it? Pin it?
+# // TODO: Check for virtualenv. Install it? Pin it?
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # Use/Install ruby as specified in .ruby-version and .ruby-gemset
