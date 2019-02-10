@@ -1,11 +1,14 @@
 #!/bin/bash --login
 
 
+# # # # # # # # #
+# Switch to directory containing this script
 __dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+echo
+echo "> Switching to ${__dir}"
 cd "${__dir}"
+# # # # # # # # #
 
-
-echo "# # # # #"
 
 # // TODO: Check for rvm. Install it? No, but convince me. Or open a PR :)
 # // TODO: Check for python 3.7, preferably homebrew python. Install it? Pin it? Maybe, convince me. Or open a PR :)
@@ -13,73 +16,66 @@ echo "# # # # #"
 # // TODO: Check for pip. Install it? Pin it? Maybe, convince me. Or open a PR :)
 # // TODO: Check for virtualenv. Install it? Pin it? Maybe, convince me. Or open a PR :)
 
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# # # # # # # # #
 # Use/Install ruby as specified in .ruby-version and .ruby-gemset
-rvm use "$(cat '.ruby-version')@$(cat '.ruby-gemset')" --create --install
+__ruby_environment="$(cat '.ruby-version')@$(cat '.ruby-gemset')"
+echo
+echo "> Running rvm use ${__ruby_environment} --create --install"
+rvm use "${__ruby_environment}" --create --install
 #
-# # # # # # # # # # # # # # # # #
-
-
-echo "# # #"
+# # # # # # # # #
 
 
 # # # # # # # # #
 # Install bundler
-echo "Checking for bundler installation..."
+echo
+echo "> Checking for bundler installation"
 GEM_SPEC_BUNDLER_OUTPUT=$( (gem spec bundler) 2>&1 )
 GEM_NOT_FOUND=${GEM_SPEC_BUNDLER_OUTPUT::5}
 if [[ $GEM_NOT_FOUND = "ERROR" ]];
 then
-    echo "bundler is not installed."
-    echo "Installing bundler..."
+    echo "> bundler is not installed."
+    echo "> Installing bundler"
     gem install bundler
 else
-    echo "bundler is already installed."
+    echo "> bundler is already installed."
 fi
 #
 # # # # # # # # #
 
 
-echo "# # #"
-
-
-# # # # # # # # # # #
+# # # # # # # # #
 # Run bundle install
-echo "Running bundle install"
+echo
+echo "> Running bundle install"
 bundle install
 #
-# # # # # # # # # # #
+# # # # # # # # #
 
 
-echo "# # #"
-
-
-# # # # # # # # # # #
-# Create virtualenv 'licketysplit'
-echo "Create virtualenv 'licketysplit'"
+# # # # # # # # #
+# Create/Activate virtualenv 'licketysplit'
+echo
+echo "> Creating/activating virtualenv 'licketysplit'"
 mkvirtualenv licketysplit
 #
-# # # # # # # # # # #
+# # # # # # # # #
 
 
-echo "# # #"
-
-
-# # # # # # # # # # #
+# # # # # # # # #
 # Install dev-requirements.txt
-echo "Run pip-sync dev-requirements.txt"
+echo
+echo "> Running pip install -r dev-requirements.txt"
 pip install -r dev-requirements.txt
 #
-# # # # # # # # # # #
+# # # # # # # # #
 
 
-echo "# # #"
-
-
-# # # # # # # # # #
-# Install git hooks
+# # # # # # # # #
+# Install pre-push hook
+echo
+echo "> Installing pre-push hook"
 mkdir -p ".git/hooks/"
-echo "Installing pre-push hook..."
 cat <<\EOF > ".git/hooks/pre-push"
 #!/bin/bash
 
@@ -87,8 +83,9 @@ cat <<\EOF > ".git/hooks/pre-push"
 EOF
 chmod +x ".git/hooks/pre-push"
 #
-# # # # # # # # # #
+# # # # # # # # #
 
 
-echo "Done. Have fun developing!"
-echo "# # # # #"
+echo
+echo "> Done. Have fun developing!"
+echo
