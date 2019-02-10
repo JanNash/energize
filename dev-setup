@@ -77,20 +77,9 @@ echo "# # #"
 
 
 # # # # # # # # # # #
-# Install pip-tools via pip
-echo "Install pip-tools"
-pip install pip-tools
-#
-# # # # # # # # # # #
-
-
-echo "# # #"
-
-
-# # # # # # # # # # #
-# Run pip-sync
+# Install dev-requirements.txt
 echo "Run pip-sync dev-requirements.txt"
-pip-sync dev-requirements.txt
+pip install -r dev-requirements.txt
 #
 # # # # # # # # # # #
 
