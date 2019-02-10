@@ -66,17 +66,6 @@ echo "# # #"
 
 
 # # # # # # # # # # #
-# Activate virtualenv 'licketysplit'
-echo "Activate virtualenv 'licketysplit'"
-. ./licketysplit/bin/activate
-#
-# # # # # # # # # # #
-
-
-echo "# # #"
-
-
-# # # # # # # # # # #
 # Install dev-requirements.txt
 echo "Run pip-sync dev-requirements.txt"
 pip install -r dev-requirements.txt
