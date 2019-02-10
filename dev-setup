@@ -8,7 +8,7 @@ cd "${__dir}"
 echo "# # # # #"
 
 # // TODO: Check for rvm. Install it? No, but convince me. Or open a PR :)
-# // TODO: Check for python 3.7, preferably homebrew python. Install it?
+# // TODO: Check for python 3.7, preferably homebrew python. Install it? Pin it?
 # // TODO: If so, check for homebrew? Install it?
 # // TODO: Check for pip. Install it? Pin it?
 # // TODO: Check for virtualenv. Install it? Pin it?
@@ -55,9 +55,9 @@ echo "# # #"
 
 
 # # # # # # # # # # #
-# Install pipenv via homebrew
-echo "Installing pipenv via homebrew"
-brew install pipenv
+# Create virtualenv 'licketysplit'
+echo "Create virtualenv 'licketysplit'"
+mkvirtualenv licketysplit
 #
 # # # # # # # # # # #
 
@@ -66,9 +66,20 @@ echo "# # #"
 
 
 # # # # # # # # # # #
-# Run pipenv install
-echo "Running pipenv install"
-pipenv install
+# Install pip-tools via pip
+echo "Install pip-tools"
+pip install pip-tools
+#
+# # # # # # # # # # #
+
+
+echo "# # #"
+
+
+# # # # # # # # # # #
+# Run pip-sync
+echo "Run pip-sync dev-requirements.txt"
+pip-sync dev-requirements.txt
 #
 # # # # # # # # # # #
 
