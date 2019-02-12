@@ -10,11 +10,12 @@ cd "${__dir}"
 # # # # # # # # #
 
 
-# // TODO: Check for rvm. Install it? No, but convince me. Or open a PR :)
-# // TODO: Check for python 3.7, preferably homebrew python. Install it? Pin it? Maybe, convince me. Or open a PR :)
-# // TODO: If so, check for homebrew? Install it? No, but convince me. Or open a PR :)
-# // TODO: Check for pip. Install it? Pin it? Maybe, convince me. Or open a PR :)
-# // TODO: Check for virtualenv. Install it? Pin it? Maybe, convince me. Or open a PR :)
+# // TODO: Check for rvm. Install it? No, that should be up to the user, I think.
+# // TODO: Check for python 3.7, preferably homebrew python. Install it? Pin it? Maybe.
+# // TODO: If so, check for homebrew? Install it? No, that should be up to the user, I think.
+# // TODO: Check for pip. Install it? Pin it? Maybe.
+# // TODO: Check for virtualenv. Install it? Pin it? Maybe.
+# For the 'maybe's, feel free to convince me why it should or shouldn't be done. Or open a PR :)
 
 # # # # # # # # #
 # Use/Install ruby as specified in .ruby-version and .ruby-gemset
@@ -27,18 +28,17 @@ rvm use "${__ruby_environment}" --create --install
 
 
 # # # # # # # # #
-# Install bundler
+# Check for/Install bundler
 echo
 echo "> Checking for bundler installation"
-GEM_SPEC_BUNDLER_OUTPUT=$( (gem spec bundler) 2>&1 )
-GEM_NOT_FOUND=${GEM_SPEC_BUNDLER_OUTPUT::5}
-if [[ $GEM_NOT_FOUND = "ERROR" ]];
+gem spec bundler >/dev/null 2>&1
+if [[ $? -eq 0 ]];
 then
+	echo "> bundler is already installed."
+else
     echo "> bundler is not installed."
     echo "> Installing bundler"
     gem install bundler
-else
-    echo "> bundler is already installed."
 fi
 #
 # # # # # # # # #
@@ -63,10 +63,19 @@ mkvirtualenv licketysplit
 
 
 # # # # # # # # #
+# Install pip-tools
+echo
+echo "> Installing pip-tools"
+pip install pip-tools
+#
+# # # # # # # # #
+
+
+# # # # # # # # #
 # Install dev-requirements.txt
 echo
-echo "> Running pip install -r dev-requirements.txt"
-pip install -r dev-requirements.txt
+echo "> Running pip-sync dev-requirements.txt"
+pip-sync dev-requirements.txt
 #
 # # # # # # # # #
 
