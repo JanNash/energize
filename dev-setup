@@ -10,11 +10,12 @@ cd "${__dir}"
 # # # # # # # # #
 
 
-# // TODO: Check for rvm. Install it? No, but convince me. Or open a PR :)
-# // TODO: Check for python 3.7, preferably homebrew python. Install it? Pin it? Maybe, convince me. Or open a PR :)
-# // TODO: If so, check for homebrew? Install it? No, but convince me. Or open a PR :)
-# // TODO: Check for pip. Install it? Pin it? Maybe, convince me. Or open a PR :)
-# // TODO: Check for virtualenv. Install it? Pin it? Maybe, convince me. Or open a PR :)
+# // TODO: Check for rvm. Install it? No, that should be up to the user, I think.
+# // TODO: Check for python 3.7, preferably homebrew python. Install it? Pin it? Maybe.
+# // TODO: If so, check for homebrew? Install it? No, that should be up to the user, I think.
+# // TODO: Check for pip. Install it? Pin it? Maybe.
+# // TODO: Check for virtualenv. Install it? Pin it? Maybe.
+# For the 'maybe's, feel free to convince me why it should or shouldn't be done. Or open a PR :)
 
 # # # # # # # # #
 # Use/Install ruby as specified in .ruby-version and .ruby-gemset
@@ -27,7 +28,7 @@ rvm use "${__ruby_environment}" --create --install
 
 
 # # # # # # # # #
-# Install bundler
+# Check for/Install bundler
 echo
 echo "> Checking for bundler installation"
 gem spec bundler >/dev/null 2>&1
